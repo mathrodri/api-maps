@@ -1,43 +1,51 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 072aa93cb68c595059095e545643af1e75d25d0b
 /* 
-descrição: Testa se o navegador possui geolocalização
+descrição: função que realiza o contato com a api
 autor: victor
 entrada: {
-	navigator: objeto que contem informações e funções nativas do navegador
-	geolocation: objeto que contem funções para geolocalização
+	funções para capturar informações e inicializar o mapa
 }
-saida: informa se o navegador possui geolocalização
+saida: insere o mapa na tela com todas as informações
 */
 
-if('geolocation' in navigator) {
-	
+function initialize() {
+
 	/* 
-	descrição: captua a localização do usuário
+	descrição: Testa se o navegador possui geolocalização
 	autor: victor
 	entrada: {
-		position: objeto que contem as informações de localização
+		navigator: objeto que contem informações e funções nativas do navegador
+		geolocation: objeto que contem funções para geolocalização
 	}
-	saida: latitude e longitude do usuário
+	saida: informa se o navegador possui geolocalização
 	*/
-	
-	navigator.geolocation.getCurrentPosition(function(position){
 
-		// armazena a latitude e longitude do usuário
+	if('geolocation' in navigator) {
+		
+		/* 
+		descrição: captua a localização do usuário
+		autor: victor
+		entrada: {
+			position: objeto que contem as informações de localização
+		}
+		saida: latitude e longitude do usuário
+		*/
+		
+		navigator.geolocation.getCurrentPosition(function(position){
 
-		var userLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
+			// armazena a latitude e longitude do usuário
 
-		// exibe a latitude e longitude
+			var userLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
 
-		alert('latitude: ' + userLocation.lat + ' longitude: ' + userLocation.lng);
-	}, function(erro) {
-		alert('Por favor, ative a localização em seu navegador');
-	});
-} else {
-	alert('seu navegador não suporta geolocalização, atualize-o para usar nossa aplicação');
-<<<<<<< HEAD
+			// exibe a latitude e longitude
+
+			alert('latitude: ' + userLocation.lat + ' longitude: ' + userLocation.lng);
+		}, function(erro) {
+			alert('Por favor, ative a localização em seu navegador');
+		});
+	} else {
+		alert('seu navegador não suporta geolocalização, atualize-o para usar nossa aplicação');
+	}
+
 }
 
 /* 
@@ -60,7 +68,7 @@ function addEvent() {
 		// adiciona evento click ao botão
 
 		btn.addEventListener('click', function() {
-			alert("evento funcionando");
+			initialize();
 		});
 	} else {
 
@@ -69,6 +77,4 @@ function addEvent() {
 		setTimeout(addEvent(), 1000);
 	}
 
-=======
->>>>>>> 072aa93cb68c595059095e545643af1e75d25d0b
 }
