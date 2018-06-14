@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 072aa93cb68c595059095e545643af1e75d25d0b
 /* 
 descrição: Testa se o navegador possui geolocalização
 autor: victor
@@ -33,6 +37,7 @@ if('geolocation' in navigator) {
 	});
 } else {
 	alert('seu navegador não suporta geolocalização, atualize-o para usar nossa aplicação');
+<<<<<<< HEAD
 }
 
 /* 
@@ -64,4 +69,6 @@ function addEvent() {
 		setTimeout(addEvent(), 1000);
 	}
 
+=======
+>>>>>>> 072aa93cb68c595059095e545643af1e75d25d0b
 }
