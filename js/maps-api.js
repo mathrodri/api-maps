@@ -1,3 +1,4 @@
+
 /* 
 descrição: função que realiza o contato com a api
 autor: victor
@@ -8,6 +9,8 @@ saida: insere o mapa na tela com todas as informações
 */
 
 function initialize() {
+
+	var map;
 
 	/* 
 	descrição: Testa se o navegador possui geolocalização
@@ -36,9 +39,9 @@ function initialize() {
 
 			var userLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
 
-			// exibe a latitude e longitude
+			// chama o mapa do google
 
-			alert('latitude: ' + userLocation.lat + ' longitude: ' + userLocation.lng);
+			initMap();
 		}, function(erro) {
 			alert('Por favor, ative a localização em seu navegador');
 		});
@@ -46,13 +49,35 @@ function initialize() {
 		alert('seu navegador não suporta geolocalização, atualize-o para usar nossa aplicação');
 	}
 
+	/* 
+	descrição: instancia o mapa do google
+	autor: matheus
+	entrada: {
+		função para instanciar o mapa
+	}
+	saida: mapa instanciado
+	*/
+
+	function initMap() {
+
+		// cria um novo mapa setando onde ele ira ficar na página, o zoom e o a posição inicial
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: userLocation,
+          zoom: 15
+		});
+		
+    }
+
 }
 
 /* 
 	descrição: adiciona evento para chamar o mapa pelo botão
 	autor: daniela
-	entrada: {}
-	saida:
+	entrada: {
+		funcão para adicionar evento ao botão
+	}
+	saida: evento adicionado
 */
 
 function addEvent() {
