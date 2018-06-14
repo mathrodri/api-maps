@@ -4,17 +4,13 @@
     <meta charset="UTF-8" />
     <title>Trabalho maps</title>
 	  <link rel="stylesheet" href="css/estilo.css">
+	  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/babel" src="js/react-render.js" defer="defer"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr1t0HLoEQNifKxzvWlpUQWj2GU1n6etA&libraries=places" defer="defer"></script>
+	  <script src="js/maps-api.js"></script>
   </head>
-  <body>
-	<main>
-        <h1>Encontre o Motel</h1>
-        <p> 
-            Está precisando de um lugar mais reservado ? <br/>
-            Encontre a solução mais próxima de você !
-        </p>
-        <button>Localizar</button>
-        <div id="map">
-        </div>
-    </main>
+  <body id="root">
   </body>
 </html>
