@@ -1,6 +1,6 @@
 
 /* 
-descrição: função que realiza o contato com a api
+descrição: função que incializa as outras funções
 autor: victor
 entrada: {
 	funções para capturar informações e inicializar o mapa
@@ -50,23 +50,45 @@ function initialize() {
 	}
 
 	/* 
-	descrição: instancia o mapa do google
-	autor: matheus
+	descrição: instancia o mapa e o serviço de busca por distância
+	autor: matheus e daniela
 	entrada: {
-		função para instanciar o mapa
+		função para instanciar o mapa e o serviço
 	}
-	saida: mapa instanciado
+	saida: mapa e serviço instanciado
 	*/
 
 	function initMap() {
 
 		// cria um novo mapa setando onde ele ira ficar na página, o zoom e o a posição inicial
+		// autor: matheus
+		// entrada: {
+		//	  userLocation: latitute e longitude do usuário
+		//    zoom: a a proximação do mapa
+		// }
+		// saida: mapa com a posição inicial e aproximação instanciada
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: userLocation,
           zoom: 15
 		});
+
+		// instancia o serviço de busca por distância, passando a localização do usuário,
+		// o raio de busca e o nome dos locais a serem encontrados
+		// autor: daniela
+		// entrada: {
+		//	  userLocation: latitute e longitude do usuário
+		//    radius: raio de busca
+		//    name: nome para procurar locais com essa palavra no nome
+		// }
+		// saida: serviço com nome, raio de busca e posição instanciada
 		
+		var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: userLocation,
+          radius: 5000,
+          name: 'motel'
+        });
     }
 
 }
