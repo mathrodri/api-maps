@@ -122,7 +122,6 @@ function initialize() {
 	*/
 	
 	function createMarker(place) {
-		
         var infowindow = new google.maps.InfoWindow();
 
 		// posiciona os marcadores no mapa
@@ -133,10 +132,23 @@ function initialize() {
           position: place.geometry.location
 		});
 
+		// setando as informações de cada local
+		
+		var content;
+        
+        if(place.rating !== undefined) {
+          content = "<h2>" + place.name + "</h2>" +
+                    "<p class='locInfo'>" + place.rating + " estrelas" + "</p>" +
+                    "<p class='locInfo'>" + place.vicinity + "</p>";
+        } else {
+          content = "<h2>" + place.name + "</h2>" +
+                    "<p class='locInfo'>Local não avaliado</p>" +
+                    "<p class='locInfo'>" + place.vicinity + "</p>";
+
 		// seta a informação de cada marcador
 		
 		google.maps.event.addListener(marker, 'click', function() {
-			infowindow.setContent(place.name);
+			infowindow.setContent(content);
 			infowindow.open(map, this);
 		});
     }
