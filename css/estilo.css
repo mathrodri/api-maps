@@ -37,6 +37,12 @@ p {
     color: #fff;
 }
 
+.locInfo {
+    color: #000;
+    font-size: 1.4rem;
+    text-align: left;
+}
+
 button {
     margin: 3rem 0;
     font-size: 2rem;
