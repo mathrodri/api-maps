@@ -122,11 +122,23 @@ function initialize() {
 	*/
 	
 	function createMarker(place) {
+		
+        var infowindow = new google.maps.InfoWindow();
+
+		// posiciona os marcadores no mapa
+
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
-        });
+		});
+
+		// seta a informação de cada marcador
+		
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.setContent(place.name);
+			infowindow.open(map, this);
+		});
     }
 
 }
