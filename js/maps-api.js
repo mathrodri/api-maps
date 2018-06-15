@@ -88,7 +88,28 @@ function initialize() {
           location: userLocation,
           radius: 5000,
           name: 'motel'
-        });
+        }, criaMarkers); // chama função que insere os maracadores correspondentes ás localizações
+	}
+
+	/* 
+	descrição: cria marcadores para os locais correspondentes á pesquisa
+	autor: victor
+	entrada: {
+		result: são os locais encontrados
+		status: status se a localização foi feita com sucesso ou não
+	}
+	saida: mapa e serviço instanciado
+	*/
+	
+	function criaMarkers(results, status) {
+
+		// verifica se o serviço está disponível
+
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
     }
 
 }
