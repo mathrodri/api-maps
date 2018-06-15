@@ -98,7 +98,7 @@ function initialize() {
 		result: são os locais encontrados
 		status: status se a localização foi feita com sucesso ou não
 	}
-	saida: mapa e serviço instanciado
+	saida: marcadores iniciados
 	*/
 	
 	function criaMarkers(results, status) {
@@ -110,6 +110,23 @@ function initialize() {
             createMarker(results[i]);
           }
         }
+	}
+
+	/* 
+	descrição: seta o local, o tipo de marcador a ser colocado e as informações do mesmo
+	autor: matheus e daniela
+	entrada: {
+		place: posição do marcador no mapa
+	}
+	saida: marcadores posicionado
+	*/
+	
+	function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
     }
 
 }
